@@ -9,7 +9,7 @@ class Utilisateur_Controller {
 
 	/**
 	 * 
-	 * @var Facture
+	 * @var Utilisateur
 	 * @access private
 	 */
 	private  $model;
@@ -17,11 +17,11 @@ class Utilisateur_Controller {
 
 	/**
 	 * @access public
-	 * @param Facture $model 
+	 * @param Utilisateur $model 
 	 * @return void
 	 */
 
-	public final  function __construct(Facture $model) {
+	public final  function __construct(Utilisateur $model) {
 
 	}
 

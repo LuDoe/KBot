@@ -1,0 +1,63 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #AAA;
+}
+
+header {
+	position: relative;
+	height: 100px;
+	background-color: #AAA;
+	width: 96%;
+	margin: 2%;
+}
+
+header h1, header p {
+	margin: 0;
+}
+
+#main_container {
+	position: relative;
+	width: 100%;
+	height: auto;
+	background-color: #FFF;
+	padding: 10px 0;
+}
+
+nav {
+	position: relative;
+	float: left;
+	width: 19%;
+	height: auto;
+}
+
+section {
+	position: relative;
+	float: right;
+	width: 80%;
+	height: auto;
+	border-left: 1px solid #AAA;
+	padding: 5px;
+}
+
+article {
+	position: relative;
+	float: left;
+	width: 70%;
+	height: auto;
+}
+
+aside {
+	position: relative;
+	float: right;
+	width: 30%;
+	height: auto;
+}
+
+footer {
+	position: relative;
+	height: 100px;
+	background-color: #AAA;
+	width: 96%;
+	margin: 2%;
+}

@@ -104,12 +104,18 @@ class Utilisateur {
 	 * @param array $listeDonnee 
 	 * @return void
 	 */
+	public $template;
 
-	public final  function __construct($listeDonnee) {
-
+	public final  function __construct($listeDonnee = false) {
+		$this->template = 'tpl/template.php';
+		if(!$listeDonnee)
+			$login = 'test';
 	}
 
-
+	public final function getLogin()
+		{
+		return $this->login;
+		}
 	/**
 	 * @access public
 	 * @param array $listeDonnee 
