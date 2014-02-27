@@ -5,64 +5,33 @@
  * written by KDO kdo@zpmag.com
  */
 
-class Tirage_Controller {
+class Tirage_Controller 
+	{
+	private $model;
+	private $mysqli;
+	
+	public final  function __construct(Tirage $_model) 
+		{
+		$this->model = $_model;
+		$this->mysqli = $GLOBALS['mysqli'];
+		}
+		
+	public final  function ComposerTableauResultat() 
+		{
+		}
 
-	/**
-	 * 
-	 * @var Tirage
-	 * @access private
-	 */
-	private  $model;
+	public final  function RechercherTirage(datetime $dateTirageDebut, datetime $dateTirageFin) 
+		{
 
+		}
 
-	/**
-	 * @access public
-	 * @param Tirage $model 
-	 * @return void
-	 */
-
-	public final  function __construct(Tirage $model) {
-
-	}
-
-
-	/**
-	 * numTirage, dateJeu, listeNum, multiplicateur
-	 * @access public
-	 * @return MessageResultat
-	 */
-
-	public final  function ComposerTableauResultat() {
-
-	}
-
-
-	/**
-	 * @access public
-	 * @param datetime $dateTirageDebut 
-	 * @param datetime $dateTirageFin 
-	 * @return Tirage[]
-	 */
-
-	public final  function RechercherTirage(datetime $dateTirageDebut, datetime $dateTirageFin) {
-
-	}
-
-
-	/**
-	 * @access public
-	 * @return Tirage[]
-	 */
-
-	public final  function RechecherTousTirages() {
-
-	}
-
-
-	/**
-	 * @access public
-	 * @return int
-	 */
+	public final  function RechecherTousTirages($page = 0) 
+		{
+		$limitMin = 100*$page;
+		$limitMax = (100*$page)+100;
+		$query = $this->mysqli->query("SELECT * FROM tirage ORDER BY numeroTirage DESC LIMIT $limitMin, $limitMax");
+		return $query;
+		}
 
 	public final  function RechercherNumeroDernierTirage() {
 
@@ -88,17 +57,50 @@ class Tirage_Controller {
 	public final  function EnregistrerNouveauTirage($listeDonnee) {
 
 	}
+	
+	public final function VerifierTirage($listeDonnee, $nouvelleEnregistrement = false)
+		{
+		$error = false;
+		if(!$nouvelleEnregistrement)
+			{
+			if(empty($listeDonnee['id']) || $listeDonnee['id'] == '')
+				$error .= '<li>Aucun identifiant n\'a été sélectionné.</li>';
+			}
+			
+		if(empty($listeDonnee['numeroTirage']) || $listeDonnee['numeroTirage'] == '')
+			$error .= '<li>Vous devez saisir un numéro de tirage unique.</li>';
+			
+		if(empty($listeDonnee['dateJeu']) || $listeDonnee['dateJeu'] == '')
+			$error .= '<li>Vous devez saisir une date au format AAAA-MM-JJ.</li>';
+			
+		if(empty($listeDonnee['listeNumeroSorti']) || $listeDonnee['listeNumeroSorti'] == '')
+			$error .= '<li>Vous devez saisir la liste des numéros sorties.</li>';
+			
+		if(empty($listeDonnee['valeurMultiplicateur']) || $listeDonnee['valeurMultiplicateur'] == '')
+			$error .= '<li>Vous devez saisir une valeur pour le multiplicateur.</li>';
+			
+		if(empty($listeDonnee['momentTirage']) || $listeDonnee['momentTirage'] == '')
+			$error .= '<li>Vous devez saisir un moment ("midi" ou "soir").</li>';
+			
+		if(empty($listeDonnee['dateForclusion']) || $listeDonnee['dateForclusion'] == '')
+			$error .= '<li>Vous devez saisir une date de forclusion au format AAAA-MM-JJ.</li>';
+			
+		if(empty($listeDonnee['numeroJackpot']) || $listeDonnee['numeroJackpot'] == '')
+			$error .= '<li>Vous devez saisir un numéro de Jackpot.</li>';
+			
+		if(empty($listeDonnee['montantJackpot']) || $listeDonnee['montantJackpot'] == '')
+			$error .= '<li>Vous devez saisir un montant pour le Jackpot.</li>';
+			
+		if(empty($listeDonnee['numeroJokerplus']) || $listeDonnee['numeroJokerplus'] == '')
+			$error .= '<li>Vous devez saisir un numéro de Joker+.</li>';
+		
+		return $error;
+		}
 
+	public final  function ObservateurTirage() 
+		{
 
-	/**
-	 * Envoyer le tableau de résultats
-	 * @access public
-	 * @return void
-	 */
-
-	public final  function ObservateurTirage() {
-
-	}
+		}
 
 
 }

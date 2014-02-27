@@ -1,6 +1,8 @@
 <?php
 
 /* Set Autoload Register */
+$mysqli = new mysqli('localhost', 'root', '', 'kbot');
+
 function chargerClasse($class)
 	{
   require_once('class/'.$class.'.class.php'); // On inclut la classe correspondante au paramètre passé.
@@ -76,5 +78,4 @@ $view = new $class_view($model, $controller);
 if(isset($_GET['action']) && !empty($_GET['action']))
 	$view->{$_GET['action']}();
 
-$view->Affichage();
 ?>
