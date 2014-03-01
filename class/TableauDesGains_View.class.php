@@ -266,7 +266,7 @@ class TableauDesGains_View
 		$moreInfo[0] = array();
 		$moreInfo[0]['titre'] = 'Actions';
 		$moreInfo[0]['contenu'] = '<a href="index.php?model=tableauDesGains&action=FormulaireAjouterLigne">Ajouter une ligne</a>';
-		require_once($this->model->template);
+		require_once($GLOBALS['template']);
 		
 		}
 	}

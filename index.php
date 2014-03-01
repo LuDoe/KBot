@@ -2,6 +2,7 @@
 
 /* Set Autoload Register */
 $mysqli = new mysqli('localhost', 'root', '', 'kbot');
+$template = 'tpl/template.php';
 
 function chargerClasse($class)
 	{

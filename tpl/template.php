@@ -47,8 +47,31 @@ if(empty($moreInfo))
 							</li>
 						</ul>
 					</li>
+					<li>
+						<span>Techniques composés</span>
+						<ul>
+							<li>
+								<a href="index.php?model=techniqueComposee&action=VoirToutesTechniques">Accueil des techniques composés</a>
+							</li>
+							<li>
+								<a href="index.php?model=TCConditionNumero&action=AfficherToutesTechniques">Techniques de Numéro</a>
+							</li>
+							<li>
+								<a href="index.php?model=TCConditionMise&action=AfficherToutesTechniques">Techniques de Mise</a>
+							</li>
+							<li>
+								<a href="index.php?model=TCConditionGrille&action=AfficherToutesTechniques">Techniques de Grille</a>
+							</li>
+							<li>
+								<a href="index.php?model=TCConditionPeriode&action=AfficherToutesTechniques">Techniques de Période</a>
+							</li>
+							<li>
+								<a href="index.php?model=TCConditionMultiplicateur&action=AfficherToutesTechniques">Techniques pour le Multiplicateur</a>
+							</li>
+						</ul>
+					
+					</li>
 					<li>Utilisateur</li>
-					<li>Stratégie</li>
 					<li>Abonnement</li>
 				</ul>
 			</nav>

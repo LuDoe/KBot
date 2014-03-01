@@ -29,7 +29,7 @@ class TableauDesGains_Controller
 		if(empty($listeDonnee['nombreJoue']) || $listeDonnee['nombreJoue'] == '')
 			$error .= '<li>Vous devez définir combien de nombre ont été misés.</li>';
 			
-		if(empty($listeDonnee['nombreTrouve']) || $listeDonnee['nombreTrouve'] == '')
+		if((empty($listeDonnee['nombreTrouve']) &&  $listeDonnee['nombreTrouve'] != '0') || $listeDonnee['nombreTrouve'] == '')
 			$error .= '<li>Vous devez définir combien de nombre on été trouvés.</li>';
 			
 		if(empty($listeDonnee['mise']) || $listeDonnee['mise'] == '')
